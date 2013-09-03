@@ -71,7 +71,11 @@
                         wt = d.width;
                     } 
                     dg.dialog({
-                        iconCls: 'icon-page_edit', modal: md, maximizable: mzb, maximized: mz, resizable: rz,width:wt,
+                        iconCls: 'icon-page_edit', modal: md, maximizable: mzb, maximized: mz, resizable: rz, width: wt,
+                        onBeforeClose: function () {
+                            dg.dialog('destroy');
+                            return false;
+                        },
                         buttons: [{
                             text: "保存",
                             iconCls: 'icon-disk',modal:true,

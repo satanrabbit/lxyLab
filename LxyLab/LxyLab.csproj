@@ -44,167 +44,38 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin.aspx" />
+    <Content Include="adminLogin.aspx" />
     <Content Include="App_Data\lxyLab.mdb" />
+    <Content Include="BookInstrument.aspx" />
     <Content Include="BookLab.aspx" />
     <Content Include="default.aspx" />
+    <Content Include="EditInstrument.aspx" />
+    <Content Include="EditLab.aspx" />
+    <Content Include="EditLabChType.aspx" />
+    <Content Include="EditLabType.aspx" />
+    <Content Include="Instrument.aspx" />
+    <Content Include="Lab.aspx" />
+    <Content Include="LabCHType.aspx" />
+    <Content Include="LabDetail.aspx" />
+    <Content Include="LabType.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="ManageUser.aspx" />
     <Content Include="MB_0002_winamp.ico" />
+    <Content Include="OrderDetail.aspx" />
     <Content Include="Regiest.aspx" />
+    <Content Include="Scripts\json2.js" />
+    <Content Include="Scripts\json2.min.js" />
     <Content Include="source\Alice\one-full.css" />
     <Content Include="source\easyui\changelog.txt" />
-    <Content Include="source\easyui\demo\accordion\actions.html" />
-    <Content Include="source\easyui\demo\accordion\ajax.html" />
-    <Content Include="source\easyui\demo\accordion\basic.html" />
-    <Content Include="source\easyui\demo\accordion\tools.html" />
-    <Content Include="source\easyui\demo\accordion\_content.html" />
-    <Content Include="source\easyui\demo\calendar\basic.html" />
-    <Content Include="source\easyui\demo\calendar\firstday.html" />
-    <Content Include="source\easyui\demo\combobox\actions.html" />
-    <Content Include="source\easyui\demo\combobox\basic.html" />
-    <Content Include="source\easyui\demo\combobox\customformat.html" />
-    <Content Include="source\easyui\demo\combobox\dynamicdata.html" />
-    <Content Include="source\easyui\demo\combobox\multiple.html" />
-    <Content Include="source\easyui\demo\combobox\remotedata.html" />
-    <Content Include="source\easyui\demo\combobox\remotejsonp.html" />
-    <Content Include="source\easyui\demo\combogrid\actions.html" />
-    <Content Include="source\easyui\demo\combogrid\basic.html" />
-    <Content Include="source\easyui\demo\combogrid\initvalue.html" />
-    <Content Include="source\easyui\demo\combogrid\multiple.html" />
-    <Content Include="source\easyui\demo\combotree\actions.html" />
-    <Content Include="source\easyui\demo\combotree\basic.html" />
-    <Content Include="source\easyui\demo\combotree\initvalue.html" />
-    <Content Include="source\easyui\demo\combotree\multiple.html" />
-    <Content Include="source\easyui\demo\combo\basic.html" />
-    <Content Include="source\easyui\demo\datagrid\basic.html" />
-    <Content Include="source\easyui\demo\datagrid\cellstyle.html" />
-    <Content Include="source\easyui\demo\datagrid\checkbox.html" />
-    <Content Include="source\easyui\demo\datagrid\clientpagination.html" />
-    <Content Include="source\easyui\demo\datagrid\columngroup.html" />
-    <Content Include="source\easyui\demo\datagrid\complextoolbar.html" />
-    <Content Include="source\easyui\demo\datagrid\contextmenu.html" />
-    <Content Include="source\easyui\demo\datagrid\custompager.html" />
-    <Content Include="source\easyui\demo\datagrid\footer.html" />
-    <Content Include="source\easyui\demo\datagrid\formatcolumns.html" />
-    <Content Include="source\easyui\demo\datagrid\frozencolumns.html" />
-    <Content Include="source\easyui\demo\datagrid\frozenrows.html" />
-    <Content Include="source\easyui\demo\datagrid\mergecells.html" />
-    <Content Include="source\easyui\demo\datagrid\rowborder.html" />
-    <Content Include="source\easyui\demo\datagrid\rowediting.html" />
-    <Content Include="source\easyui\demo\datagrid\rowstyle.html" />
-    <Content Include="source\easyui\demo\datagrid\selection.html" />
-    <Content Include="source\easyui\demo\datagrid\simpletoolbar.html" />
-    <Content Include="source\easyui\demo\datagrid\transform.html" />
-    <Content Include="source\easyui\demo\datebox\basic.html" />
-    <Content Include="source\easyui\demo\datebox\dateformat.html" />
-    <Content Include="source\easyui\demo\datebox\events.html" />
-    <Content Include="source\easyui\demo\datebox\validate.html" />
-    <Content Include="source\easyui\demo\datetimebox\basic.html" />
-    <Content Include="source\easyui\demo\datetimebox\initvalue.html" />
-    <Content Include="source\easyui\demo\datetimebox\showseconds.html" />
-    <Content Include="source\easyui\demo\demo.css" />
-    <Content Include="source\easyui\demo\dialog\basic.html" />
-    <Content Include="source\easyui\demo\dialog\complextoolbar.html" />
-    <Content Include="source\easyui\demo\dialog\toolbarbuttons.html" />
-    <Content Include="source\easyui\demo\draggable\basic.html" />
-    <Content Include="source\easyui\demo\draggable\constain.html" />
-    <Content Include="source\easyui\demo\draggable\snap.html" />
-    <Content Include="source\easyui\demo\droppable\accept.html" />
-    <Content Include="source\easyui\demo\droppable\basic.html" />
-    <Content Include="source\easyui\demo\droppable\sort.html" />
-    <Content Include="source\easyui\demo\easyloader\basic.html" />
-    <Content Include="source\easyui\demo\form\basic.html" />
-    <Content Include="source\easyui\demo\form\load.html" />
-    <Content Include="source\easyui\demo\layout\addremove.html" />
-    <Content Include="source\easyui\demo\layout\basic.html" />
-    <Content Include="source\easyui\demo\layout\complex.html" />
-    <Content Include="source\easyui\demo\layout\full.html" />
-    <Content Include="source\easyui\demo\layout\nestedlayout.html" />
-    <Content Include="source\easyui\demo\layout\nocollapsible.html" />
-    <Content Include="source\easyui\demo\layout\_content.html" />
-    <Content Include="source\easyui\demo\linkbutton\basic.html" />
-    <Content Include="source\easyui\demo\linkbutton\iconalign.html" />
-    <Content Include="source\easyui\demo\linkbutton\plain.html" />
-    <Content Include="source\easyui\demo\menubutton\actions.html" />
-    <Content Include="source\easyui\demo\menubutton\basic.html" />
-    <Content Include="source\easyui\demo\menu\basic.html" />
-    <Content Include="source\easyui\demo\menu\customitem.html" />
-    <Content Include="source\easyui\demo\menu\events.html" />
-    <Content Include="source\easyui\demo\messager\alert.html" />
-    <Content Include="source\easyui\demo\messager\basic.html" />
-    <Content Include="source\easyui\demo\messager\interactive.html" />
-    <Content Include="source\easyui\demo\messager\position.html" />
-    <Content Include="source\easyui\demo\numberbox\basic.html" />
-    <Content Include="source\easyui\demo\numberbox\format.html" />
-    <Content Include="source\easyui\demo\numberbox\range.html" />
-    <Content Include="source\easyui\demo\numberspinner\basic.html" />
-    <Content Include="source\easyui\demo\numberspinner\increment.html" />
-    <Content Include="source\easyui\demo\numberspinner\range.html" />
-    <Content Include="source\easyui\demo\pagination\basic.html" />
-    <Content Include="source\easyui\demo\pagination\custombuttons.html" />
-    <Content Include="source\easyui\demo\pagination\simple.html" />
-    <Content Include="source\easyui\demo\panel\basic.html" />
-    <Content Include="source\easyui\demo\panel\customtools.html" />
-    <Content Include="source\easyui\demo\panel\loadcontent.html" />
-    <Content Include="source\easyui\demo\panel\nestedpanel.html" />
-    <Content Include="source\easyui\demo\panel\paneltools.html" />
-    <Content Include="source\easyui\demo\panel\_content.html" />
-    <Content Include="source\easyui\demo\progressbar\basic.html" />
-    <Content Include="source\easyui\demo\propertygrid\basic.html" />
-    <Content Include="source\easyui\demo\propertygrid\customcolumns.html" />
-    <Content Include="source\easyui\demo\propertygrid\groupformat.html" />
-    <Content Include="source\easyui\demo\resizable\basic.html" />
-    <Content Include="source\easyui\demo\searchbox\basic.html" />
-    <Content Include="source\easyui\demo\searchbox\category.html" />
-    <Content Include="source\easyui\demo\slider\basic.html" />
-    <Content Include="source\easyui\demo\slider\formattip.html" />
-    <Content Include="source\easyui\demo\slider\rule.html" />
-    <Content Include="source\easyui\demo\slider\vertical.html" />
-    <Content Include="source\easyui\demo\splitbutton\actions.html" />
-    <Content Include="source\easyui\demo\splitbutton\basic.html" />
-    <Content Include="source\easyui\demo\tabs\autoheight.html" />
-    <Content Include="source\easyui\demo\tabs\basic.html" />
-    <Content Include="source\easyui\demo\tabs\hover.html" />
-    <Content Include="source\easyui\demo\tabs\nestedtabs.html" />
-    <Content Include="source\easyui\demo\tabs\striptools.html" />
-    <Content Include="source\easyui\demo\tabs\tabposition.html" />
-    <Content Include="source\easyui\demo\tabs\tabstools.html" />
-    <Content Include="source\easyui\demo\tabs\_content.html" />
-    <Content Include="source\easyui\demo\timespinner\actions.html" />
-    <Content Include="source\easyui\demo\timespinner\basic.html" />
-    <Content Include="source\easyui\demo\timespinner\range.html" />
-    <Content Include="source\easyui\demo\treegrid\actions.html" />
-    <Content Include="source\easyui\demo\treegrid\basic.html" />
-    <Content Include="source\easyui\demo\treegrid\contextmenu.html" />
-    <Content Include="source\easyui\demo\treegrid\editable.html" />
-    <Content Include="source\easyui\demo\treegrid\footer.html" />
-    <Content Include="source\easyui\demo\treegrid\reports.html" />
-    <Content Include="source\easyui\demo\tree\actions.html" />
-    <Content Include="source\easyui\demo\tree\animation.html" />
-    <Content Include="source\easyui\demo\tree\basic.html" />
-    <Content Include="source\easyui\demo\tree\checkbox.html" />
-    <Content Include="source\easyui\demo\tree\contextmenu.html" />
-    <Content Include="source\easyui\demo\tree\dnd.html" />
-    <Content Include="source\easyui\demo\tree\editable.html" />
-    <Content Include="source\easyui\demo\tree\icons.html" />
-    <Content Include="source\easyui\demo\validatebox\basic.html" />
-    <Content Include="source\easyui\demo\window\basic.html" />
-    <Content Include="source\easyui\demo\window\customtools.html" />
-    <Content Include="source\easyui\demo\window\inlinewindow.html" />
-    <Content Include="source\easyui\demo\window\modalwindow.html" />
-    <Content Include="source\easyui\demo\window\windowlayout.html" />
     <Content Include="source\easyui\easyloader.js" />
     <Content Include="source\easyui\easyui_ex.js" />
     <Content Include="source\easyui\jquery-1.8.0.min.js" />
@@ -286,6 +157,7 @@
     <Content Include="source\easyui\src\jquery.slider.js" />
     <Content Include="source\easyui\src\jquery.tabs.js" />
     <Content Include="source\easyui\src\jquery.window.js" />
+    <Content Include="source\easyui\sr_easyui_dialog_form_20130602.js" />
     <Content Include="source\easyui\themes\black\accordion.css" />
     <Content Include="source\easyui\themes\black\calendar.css" />
     <Content Include="source\easyui\themes\black\combo.css" />
@@ -571,46 +443,6 @@
     <Content Include="source\qTip2\tips\jquery.qtip.nightly.min.css" />
     <Content Include="source\qTip2\tips\tips.css" />
     <Content Include="source\qTip2\tips\tips.js" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\dist\autocomplete-debug.js" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\dist\autocomplete.js" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\dist\textarea-complete-debug.js" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\dist\textarea-complete.js" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\src\autocomplete.css" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\src\autocomplete.js" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\src\data-source.js" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\src\filter.js" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\src\textarea-complete.js" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\tests\autocomplete-spec.js" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\tests\data-source-spec.js" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\tests\filter-spec.js" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\tests\issue-spec.js" />
-    <Content Include="source\sea-modules\arale\base\1.0.1\base-debug.js" />
-    <Content Include="source\sea-modules\arale\base\1.0.1\base.js" />
-    <Content Include="source\sea-modules\arale\class\1.0.0\class-debug.js" />
-    <Content Include="source\sea-modules\arale\class\1.0.0\class.js" />
-    <Content Include="source\sea-modules\arale\cookie\1.0.2\cookie-debug.js" />
-    <Content Include="source\sea-modules\arale\cookie\1.0.2\cookie.js" />
-    <Content Include="source\sea-modules\arale\events\1.0.0\events-debug.js" />
-    <Content Include="source\sea-modules\arale\events\1.0.0\events.js" />
-    <Content Include="source\sea-modules\arale\tip-master\dist\atip-debug.js" />
-    <Content Include="source\sea-modules\arale\tip-master\dist\atip.js" />
-    <Content Include="source\sea-modules\arale\tip-master\dist\tip-debug.js" />
-    <Content Include="source\sea-modules\arale\tip-master\dist\tip.js" />
-    <Content Include="source\sea-modules\arale\tip-master\src\atip.js" />
-    <Content Include="source\sea-modules\arale\tip-master\src\tip.js" />
-    <Content Include="source\sea-modules\arale\tip-master\tests\tip-spec.js" />
-    <Content Include="source\sea-modules\jquery\jquery\1.8.0\jquery-debug.js" />
-    <Content Include="source\sea-modules\jquery\jquery\1.8.0\jquery.js" />
-    <Content Include="source\sea-modules\seajs\seajs\2.0.0\plugin-combo.js" />
-    <Content Include="source\sea-modules\seajs\seajs\2.0.0\plugin-debug.js" />
-    <Content Include="source\sea-modules\seajs\seajs\2.0.0\plugin-flush.js" />
-    <Content Include="source\sea-modules\seajs\seajs\2.0.0\plugin-nocache.js" />
-    <Content Include="source\sea-modules\seajs\seajs\2.0.0\plugin-shim.js" />
-    <Content Include="source\sea-modules\seajs\seajs\2.0.0\plugin-style.js" />
-    <Content Include="source\sea-modules\seajs\seajs\2.0.0\plugin-text.js" />
-    <Content Include="source\sea-modules\seajs\seajs\2.0.0\plugin-warning.js" />
-    <Content Include="source\sea-modules\seajs\seajs\2.0.0\sea-debug.js" />
-    <Content Include="source\sea-modules\seajs\seajs\2.0.0\sea.js" />
     <Content Include="test\fushixuhao\conn1.asp" />
     <Content Include="test\fushixuhao\cscjpm-find.asp" />
     <Content Include="test\fushixuhao\cscjpm-result.asp" />
@@ -638,13 +470,37 @@
     <Content Include="test\fushixuhao\images\yjsc3.gif" />
     <Content Include="test\fushixuhao\images\_notes\dwsync.xml" />
     <Content Include="test\fushixuhao\_notes\dwsync.xml" />
+    <Content Include="test\testCombotree.aspx" />
     <Content Include="test\testTip.aspx" />
     <Content Include="test\WebForm1.aspx" />
+    <Content Include="UserEditInfo.aspx" />
+    <Content Include="UserOrder.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adminLogin.aspx.cs">
+      <DependentUpon>adminLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminLogin.aspx.designer.cs">
+      <DependentUpon>adminLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BookInstrument.aspx.cs">
+      <DependentUpon>BookInstrument.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookInstrument.aspx.designer.cs">
+      <DependentUpon>BookInstrument.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BookLab.aspx.cs">
       <DependentUpon>BookLab.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -652,22 +508,165 @@
     <Compile Include="BookLab.aspx.designer.cs">
       <DependentUpon>BookLab.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BookLabSave.ashx.cs">
+      <DependentUpon>BookLabSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel.cs" />
+    <Compile Include="DeleteLab.ashx.cs">
+      <DependentUpon>DeleteLab.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteLabType.ashx.cs">
+      <DependentUpon>DeleteLabType.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteUser.ashx.cs">
+      <DependentUpon>DeleteUser.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="EditInstrument.aspx.cs">
+      <DependentUpon>EditInstrument.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditInstrument.aspx.designer.cs">
+      <DependentUpon>EditInstrument.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditLab.aspx.cs">
+      <DependentUpon>EditLab.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditLab.aspx.designer.cs">
+      <DependentUpon>EditLab.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditLabChType.aspx.cs">
+      <DependentUpon>EditLabChType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditLabChType.aspx.designer.cs">
+      <DependentUpon>EditLabChType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditLabType.aspx.cs">
+      <DependentUpon>EditLabType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditLabType.aspx.designer.cs">
+      <DependentUpon>EditLabType.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GetBookInfo.ashx.cs">
       <DependentUpon>GetBookInfo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="GetChTypeList.ashx.cs">
+      <DependentUpon>GetChTypeList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="GetInstrumentList.ashx.cs">
+      <DependentUpon>GetInstrumentList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="GetInstrumentsForCombo.ashx.cs">
+      <DependentUpon>GetInstrumentsForCombo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="GetLabChTypeList.ashx.cs">
+      <DependentUpon>GetLabChTypeList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="GetLabInfo.ashx.cs">
+      <DependentUpon>GetLabInfo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="GetLabList.ashx.cs">
+      <DependentUpon>GetLabList.ashx</DependentUpon>
     </Compile>
     <Compile Include="GetLabTree.ashx.cs">
       <DependentUpon>GetLabTree.ashx</DependentUpon>
     </Compile>
+    <Compile Include="GetLabTypeList.ashx.cs">
+      <DependentUpon>GetLabTypeList.ashx</DependentUpon>
+    </Compile>
     <Compile Include="GetTerms.ashx.cs">
       <DependentUpon>GetTerms.ashx</DependentUpon>
     </Compile>
+    <Compile Include="GetTypeList.ashx.cs">
+      <DependentUpon>GetTypeList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="GetUserList.ashx.cs">
+      <DependentUpon>GetUserList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Instrument.aspx.cs">
+      <DependentUpon>Instrument.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Instrument.aspx.designer.cs">
+      <DependentUpon>Instrument.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Lab.aspx.cs">
+      <DependentUpon>Lab.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lab.aspx.designer.cs">
+      <DependentUpon>Lab.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LabCHType.aspx.cs">
+      <DependentUpon>LabCHType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LabCHType.aspx.designer.cs">
+      <DependentUpon>LabCHType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LabDetail.aspx.cs">
+      <DependentUpon>LabDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LabDetail.aspx.designer.cs">
+      <DependentUpon>LabDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LabType.aspx.cs">
+      <DependentUpon>LabType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LabType.aspx.designer.cs">
+      <DependentUpon>LabType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="logout.ashx.cs">
+      <DependentUpon>logout.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="lxyAuthor.cs" />
     <Compile Include="LxyOledb.cs" />
+    <Compile Include="ManageUser.aspx.cs">
+      <DependentUpon>ManageUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageUser.aspx.designer.cs">
+      <DependentUpon>ManageUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrderDetail.aspx.cs">
+      <DependentUpon>OrderDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderDetail.aspx.designer.cs">
+      <DependentUpon>OrderDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Regiest.aspx.cs">
       <DependentUpon>Regiest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Regiest.aspx.designer.cs">
       <DependentUpon>Regiest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SaveInstOrder.ashx.cs">
+      <DependentUpon>SaveInstOrder.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="SaveInstrument.ashx.cs">
+      <DependentUpon>SaveInstrument.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="SaveLab.ashx.cs">
+      <DependentUpon>SaveLab.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="SaveLabChType.ashx.cs">
+      <DependentUpon>SaveLabChType.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="SaveLabType.ashx.cs">
+      <DependentUpon>SaveLabType.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="test\testCombotree.aspx.cs">
+      <DependentUpon>testCombotree.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test\testCombotree.aspx.designer.cs">
+      <DependentUpon>testCombotree.aspx</DependentUpon>
     </Compile>
     <Compile Include="test\testTip.aspx.cs">
       <DependentUpon>testTip.aspx</DependentUpon>
@@ -698,71 +697,59 @@
     <Compile Include="test\WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UserEditInfo.aspx.cs">
+      <DependentUpon>UserEditInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserEditInfo.aspx.designer.cs">
+      <DependentUpon>UserEditInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserEditInfoSave.ashx.cs">
+      <DependentUpon>UserEditInfoSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="UserEditPwdSave.ashx.cs">
+      <DependentUpon>UserEditPwdSave.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="UserOrder.aspx.cs">
+      <DependentUpon>UserOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserOrder.aspx.designer.cs">
+      <DependentUpon>UserOrder.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="source\easyui\demo\accordion\datagrid_data1.json" />
-    <Content Include="source\easyui\demo\combobox\combobox_data1.json" />
-    <Content Include="source\easyui\demo\combogrid\datagrid_data1.json" />
-    <Content Include="source\easyui\demo\combotree\tree_data1.json" />
-    <Content Include="source\easyui\demo\datagrid\datagrid_data1.json" />
-    <Content Include="source\easyui\demo\datagrid\datagrid_data2.json" />
-    <Content Include="source\easyui\demo\datagrid\products.json" />
-    <Content Include="source\easyui\demo\form\form_data1.json" />
-    <Content Include="source\easyui\demo\layout\datagrid_data1.json" />
-    <Content Include="source\easyui\demo\layout\propertygrid_data1.json" />
-    <Content Include="source\easyui\demo\layout\tree_data1.json" />
-    <Content Include="source\easyui\demo\propertygrid\propertygrid_data1.json" />
-    <Content Include="source\easyui\demo\tabs\tree_data1.json" />
-    <Content Include="source\easyui\demo\treegrid\treegrid_data1.json" />
-    <Content Include="source\easyui\demo\treegrid\treegrid_data2.json" />
-    <Content Include="source\easyui\demo\treegrid\treegrid_data3.json" />
-    <Content Include="source\easyui\demo\tree\tree_data1.json" />
-    <Content Include="source\easyui\demo\tree\tree_data2.json" />
     <Content Include="source\easyui\themes\black\images\Thumbs.db" />
     <Content Include="source\easyui\themes\bootstrap\images\Thumbs.db" />
     <Content Include="source\easyui\themes\default\images\Thumbs.db" />
     <Content Include="source\easyui\themes\gray\images\Thumbs.db" />
     <Content Include="source\easyui\themes\metro\images\Thumbs.db" />
-    <Content Include="source\sea-modules\arale\autocomplete-master.zip" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\.gitignore" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\.travis.yml" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\docs\data-source.md" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\docs\design.md" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\docs\filter.md" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\examples\data-source.md" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\examples\data.json" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\examples\email.md" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\examples\filter.md" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\examples\index.md" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\examples\textarea.md" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\HISTORY.md" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\Makefile" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\package.json" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\README.md" />
-    <Content Include="source\sea-modules\arale\autocomplete-master\src\autocomplete.tpl" />
-    <Content Include="source\sea-modules\arale\base\1.0.1\package.json" />
-    <Content Include="source\sea-modules\arale\class\1.0.0\package.json" />
-    <Content Include="source\sea-modules\arale\cookie\1.0.2\package.json" />
-    <Content Include="source\sea-modules\arale\events\1.0.0\package.json" />
-    <Content Include="source\sea-modules\arale\tip-master.zip" />
-    <Content Include="source\sea-modules\arale\tip-master\.gitignore" />
-    <Content Include="source\sea-modules\arale\tip-master\.travis.yml" />
-    <Content Include="source\sea-modules\arale\tip-master\docs\atip.md" />
-    <Content Include="source\sea-modules\arale\tip-master\examples\atip.md" />
-    <Content Include="source\sea-modules\arale\tip-master\examples\index.md" />
-    <Content Include="source\sea-modules\arale\tip-master\HISTORY.md" />
-    <Content Include="source\sea-modules\arale\tip-master\Makefile" />
-    <Content Include="source\sea-modules\arale\tip-master\package.json" />
-    <Content Include="source\sea-modules\arale\tip-master\README.md" />
-    <Content Include="source\sea-modules\arale\tip-master\src\atip.tpl" />
-    <Content Include="source\sea-modules\arale\widget-master.zip" />
-    <Content Include="source\sea-modules\jquery\jquery\1.8.0\package.json" />
-    <Content Include="source\sea-modules\seajs\seajs\2.0.0\package.json" />
-    <Content Include="source\sea-modules\seajs\seajs\2.0.0\sea.js.map" />
     <Content Include="test\fushixuhao\images\Thumbs.db" />
     <Content Include="GetLabTree.ashx" />
     <Content Include="GetTerms.ashx" />
     <Content Include="GetBookInfo.ashx" />
+    <Content Include="GetLabInfo.ashx" />
+    <Content Include="packages.config" />
+    <Content Include="logout.ashx" />
+    <Content Include="UserEditPwdSave.ashx" />
+    <Content Include="UserEditInfoSave.ashx" />
+    <Content Include="BookLabSave.ashx" />
+    <Content Include="GetLabTypeList.ashx" />
+    <Content Include="SaveLabType.ashx" />
+    <Content Include="DeleteLabType.ashx" />
+    <Content Include="GetLabChTypeList.ashx" />
+    <Content Include="GetTypeList.ashx" />
+    <Content Include="SaveLabChType.ashx" />
+    <Content Include="GetLabList.ashx" />
+    <Content Include="GetChTypeList.ashx" />
+    <Content Include="SaveLab.ashx" />
+    <Content Include="DeleteLab.ashx" />
+    <Content Include="GetInstrumentList.ashx" />
+    <Content Include="SaveInstrument.ashx" />
+    <Content Include="GetUserList.ashx" />
+    <Content Include="DeleteUser.ashx" />
+    <Content Include="GetInstrumentsForCombo.ashx" />
+    <Content Include="SaveInstOrder.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

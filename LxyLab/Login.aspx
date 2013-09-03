@@ -51,7 +51,8 @@
                                 <div class="ui-form-item">
                                     <input type="submit" id="submit" class="ui-button ui-button-mblue" value="登录" />
                                     <a href="Regiest.aspx" class="ui-button ui-button-mwhite"  >注册</a>
-                                </div>   
+                                </div>  
+                                <a href="adminLogin.aspx">管理员登陆</a> 
                             </fieldset>
                         </form>
                     </div>

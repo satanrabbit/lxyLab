@@ -17,128 +17,44 @@ namespace LxyLab
         public void ProcessRequest(HttpContext context)
         {
             //page ,rows,sort,order,pager是否分页获取
-            bool pager = true;
-            if(context.Request.Params["pager"]!=null){
-                pager = Convert.ToBoolean(context.Request.Params["pager"]);
-            }
-
+            int page = 0;
+            int pageSize = 20;
             int term = 0;
             int lab = 0;
             int week = 0;
             int weekday = 0;
             int cls = 0;
-            string userNum=null;
+            string userNum="";
             int labAmount = 0;
-            LxyOledb oledb = new LxyOledb();
-            oledb.Conn.Open();
-            if (context.Request.Params["userID"] == null || context.Request.Params["userID"] == "")
-            {
-                //未指定查询用户
-                if (context.Session["adminID"] != null && context.Session["adminID"] != "")
-                {
-                    //查询全部用户的
-                }
-                else
-                {
-                    //查询当前用户的
-                    userNum = context.Session["userNumber"].ToString();
-                }
+            DataModel dm = new DataModel();
+            if(term==0){
+                term=dm.GetCurrntTerm().TermID;
             }
-            else
-            {
-                userNum = context.Request.Params["userID"];
+            if(context.Request.Params["labID"]!=null&&context.Request.Params["labID"].Trim()!=""){
+                lab=Convert.ToInt32(context.Request.Params["labID"].Trim());
             }
-            //如是管理员登录的则查询不限用户的记录
-         
-            //学期
-            if (context.Request.Params["term"] == null || context.Request.Params["term"] == "")
-            {
-                //学期为空，默认查询当前学期
-                oledb.Cmd.CommandText = "select TermID form Term_tb where TermIsCurren= true";
-                oledb.Dr = oledb.Cmd.ExecuteReader();
-                if (oledb.Dr.Read())
-                {
-                    term = Convert.ToInt32(oledb.Dr["TermID"]);
-                }
-            }else{
-                term=Convert.ToInt32(context.Request.Params["term"]);
+            if(context.Request.Params["page"]!=null&&context.Request.Params["page"].Trim()!=""){
+                page=Convert.ToInt32(context.Request.Params["page"].Trim());
+            } if(context.Request.Params["pageSize"]!=null&&context.Request.Params["pageSize"].Trim()!=""){
+                pageSize=Convert.ToInt32(context.Request.Params["pageSize"].Trim());
             }
-            //实验室
-            if (context.Request.Params["lab"] == null || context.Request.Params["lab"] == "")
-            {
-                //不指定查询全部的实验室的记录
+            if(context.Request.Params["week"]!=null&&context.Request.Params["week"].Trim()!=""){
+                week=Convert.ToInt32(context.Request.Params["week"].Trim());
             }
-            else
-            {
-                lab = Convert.ToInt32(context.Request.Params["lab"]);
-                //查询实验室最多数
-                oledb.Cmd.CommandText = "select * from Lab_tb where LabDefault=true ";
-                oledb.Dr=oledb.Cmd.ExecuteReader();
-                if (oledb.Dr.Read())
-                {
-                    labAmount = Convert.ToInt32(oledb.Dr["LabAmount"]);
-                }
+            if(context.Request.Params["weekday"]!=null&&context.Request.Params["weekday"].Trim()!=""){
+                weekday=Convert.ToInt32(context.Request.Params["weekday"].Trim());
             }
-            //周次
-            if (context.Request.Params["week"] == null || context.Request.Params["week"] == "")
-            {
-                //未指定查询周，查询全部周的
+            if(context.Request.Params["cls"]!=null&&context.Request.Params["cls"].Trim()!=""){
+                cls=Convert.ToInt32(context.Request.Params["cls"].Trim());
             }
-            else
-            {
-                week = Convert.ToInt32(context.Request.Params["week"]);
-            }
-            //工作日
-
-            if (context.Request.Params["weekday"] == null || context.Request.Params["weekday"] == "")
-            {
-                //未指定查询工作日，查询全部工作日
-            }
-            else
-            {
-                weekday = Convert.ToInt32(context.Request.Params["weekday"]);
-            }
-            //课节
-            if (context.Request.Params["cls"] == null || context.Request.Params["cls"] == "")
-            {
-                //未指定查询课节，查询全部课节
-            }
-            else
-            {
-                weekday = Convert.ToInt32(context.Request.Params["cls"]);
-            }
-            string cmdText = "select * from (Order_tb left join User_tb on Order_tb.OrderUser=User_tb.UserNumber) left join Lab_tb on Order_tb.OrderLab=Lab_tb.LabID  where Order_tb.OrderTerm = "+term;
-            if (userNum != null)
-            {
-                cmdText = cmdText + " and Order_tb.OrderUser = "+userNum;
-            }
-            if (lab != 0)
-            {
-                cmdText = cmdText + " and Order_tb.OrderTab = " + lab;
+            if(context.Request.Params["userNum"]!=null&&context.Request.Params["userNum"].Trim()!=""){
+                userNum = context.Request.Params["userNum"].Trim();
             }
 
-            if (week != 0)
-            {
-                cmdText = cmdText + " and Order_tb.OrderWeek = " + week;
-            }
-
-            if (weekday != 0)
-            {
-                cmdText = cmdText + " and  Order_tb.OrderWeekday = " + weekday;
-            }
-
-            if (cls != 0)
-            {
-                cmdText = cmdText + " and Order_tb.OrderCls = " + cls;
-            }
-
-            if (pager)
-            {
-                //分页
-            }
-
+                //int page,int pageSize, string sort,string sortOrder,int lab,int term,string userNum,int week,int weekday,int cls
+            string wst = JsonMapper.ToJson(dm.GetBookLabs(page,pageSize,"OrderPostTime","desc",lab,term,userNum,week,weekday,cls));
             context.Response.AddHeader("Content-Type", "text/html; charset=UTF-8");
-            context.Response.Write("");
+            context.Response.Write(wst);
             context.Response.End();
         }
 

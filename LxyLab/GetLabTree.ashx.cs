@@ -21,42 +21,44 @@ namespace LxyLab
         public void ProcessRequest(HttpContext context)
         {
             //查询数据库获取实验室列表
-            LxyOledb oledb = new LxyOledb();
-            oledb.Conn.Open();
-            oledb.Cmd.CommandText = "select * from Lab_tb LEFT JOIN LabType_tb on Lab_tb.LabType=LabType_tb.LabTypeID order by Lab_tb.LabType ,Lab_tb.LabID";
-            oledb.Dr = oledb.Cmd.ExecuteReader();
+            DataModel dm=new DataModel();
             JsonData jd = new JsonData();
-            int labTypeFlag = 0;
-            while (oledb.Dr.Read())
+            List<LabType> lts = dm.GetLabTypes();
+            List<LabChType> lcts = dm.GetLabChTypes();
+            List<Lab> labs = dm.GetLabs();
+            foreach (var t in lts)
             {
-                JsonData jLab = new JsonData();
-                jLab["id"] = Convert.ToInt32(oledb.Dr["LabID"]);
-                jLab["text"] = Convert.ToString(oledb.Dr["LabName"]);
-                //"iconCls":"icon-search" 
-                jLab["iconCls"] = "icon-application_home";
-               
-                if (labTypeFlag == Convert.ToInt32(oledb.Dr["LabType"]))
+                JsonData jt = new JsonData();
+                jt["id"] = t.LabTypeID;
+                jt["text"] = t.LabTypeName;
+                jt["iconCls"] = "icon-application_cascade";
+                jt["children"] = new JsonData();
+                foreach (var ct in lcts.FindAll(delegate(LabChType lct) { return lct.LabSupType == t.LabTypeID; }))
                 {
-                    //该实验室的类型已经存在 ，遍历添加
-                    jd[jd.Count - 1]["children"].Add(jLab); 
+                    JsonData jct = new JsonData();
+                    jct["id"] = ct.LabChID;
+                    jct["text"] = ct.LabChName;
+                    jct["iconCls"] = "icon-application_cascade";
+                    jct["children"] = new JsonData();
+                    foreach (var lb in labs.FindAll(delegate(Lab _lb) { return _lb.LabType == ct.LabChID; }))
+                    {
+                        JsonData jLab = new JsonData();
+                        jLab["id"] = lb.LabID;
+                        jLab["text"] =lb.LabName;
+                        //"iconCls":"icon-search" 
+                        jLab["iconCls"] = "icon-application_home";
+                        jLab["checked"] =  lb.LabDefault;
+                        jct["children"].Add(jLab);
+                    }
+                    jt["children"].Add(jct);
                 }
-                else
-                {
-                    //该实验室的类型不存在，新建实验室类型
-                    labTypeFlag = Convert.ToInt32(oledb.Dr["LabType"]);
-                    JsonData jLabType = new JsonData();
-                    jLabType["id"] ="t"+ Convert.ToString(oledb.Dr["LabTypeID"]);
-                    jLabType["text"] = Convert.ToString(oledb.Dr["LabTypeName"]);
-                    jLabType["children"]=new JsonData();
-                    jLabType["children"].Add(jLab);
-                    jLabType["iconCls"] = "icon-application_cascade";
-                    jd.Add(jLabType);
-                }
+                
+                jd.Add(jt);
             }
-            string labs=jd.ToJson();
-            oledb.Conn.Close();
+            string labStr=jd.ToJson();
+           
             context.Response.AddHeader("Content-Type", "text/html; charset=UTF-8");
-            context.Response.Write(labs);
+            context.Response.Write(labStr);
             context.Response.End();
         }
         public bool IsReusable

@@ -48,6 +48,7 @@ namespace LxyLab
                                 //密码正确，设置session
                                 Session["lxyLabUserName"] = oledb.Dr["UserName"].ToString();
                                 Session["lxyLabUserNumber"] = oledb.Dr["UserNumber"].ToString();
+                                Session["lxyLabUserID"] = oledb.Dr["UserID"].ToString();
                                 oledb.Conn.Close();
                                 Response.Redirect("Default.aspx");
                             }
