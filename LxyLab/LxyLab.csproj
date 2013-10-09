@@ -40,7 +40,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="LitJson">
-      <HintPath>D:\cloud\开发库\litjson-0.5.0-bin\litjson-0.5.0\bin\LitJson.dll</HintPath>
+      <HintPath>..\..\litjson\bin\LitJson.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -58,6 +59,7 @@
     <Content Include="BookInstrument.aspx" />
     <Content Include="BookLab.aspx" />
     <Content Include="default.aspx" />
+    <Content Include="EditAdmin.aspx" />
     <Content Include="EditInstrument.aspx" />
     <Content Include="EditLab.aspx" />
     <Content Include="EditLabChType.aspx" />
@@ -521,6 +523,13 @@
     <Compile Include="DeleteUser.ashx.cs">
       <DependentUpon>DeleteUser.ashx</DependentUpon>
     </Compile>
+    <Compile Include="EditAdmin.aspx.cs">
+      <DependentUpon>EditAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditAdmin.aspx.designer.cs">
+      <DependentUpon>EditAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EditInstrument.aspx.cs">
       <DependentUpon>EditInstrument.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -646,6 +655,9 @@
     <Compile Include="Regiest.aspx.designer.cs">
       <DependentUpon>Regiest.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SaveAdmin.ashx.cs">
+      <DependentUpon>SaveAdmin.ashx</DependentUpon>
+    </Compile>
     <Compile Include="SaveInstOrder.ashx.cs">
       <DependentUpon>SaveInstOrder.ashx</DependentUpon>
     </Compile>
@@ -750,6 +762,7 @@
     <Content Include="DeleteUser.ashx" />
     <Content Include="GetInstrumentsForCombo.ashx" />
     <Content Include="SaveInstOrder.ashx" />
+    <Content Include="SaveAdmin.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

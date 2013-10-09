@@ -4,12 +4,13 @@
     <table>
         <tr><td>所属一级分类：</td>
             <td>
-                <input type="text" class="easyui-combobox" data-options="valueField:'LabTypeID',textField:'LabTypeName',url:'GetTypeList.ashx',required:true" name="LabSupType" value="<%=lc.LabSupType %>" />
+                <input type="text" class="easyui-combobox" data-options="valueField:'LabTypeID',textField:'LabTypeName',url:'GetTypeList.ashx',required:true" name="LabSupType" value="<%= lc.LabSupType.ToString()=="0"?"": lc.LabSupType.ToString()%>" />
             </td></tr>
         <tr><td>名称：</td>
-            <td>
-                <input type="hidden" name="LabChID" value="<%=lc.LabChID %>" />
-                <input type="text" class="easyui-validatebox" name="LabChName" value="<%=lc.LabChName %>" />
+            <td> 
+                <input type="hidden" name="LabChID" value="<%= lc.LabChID.ToString()=="0"?"": lc.LabChID.ToString()%>" />
+                <input type="text" class="easyui-validatebox"  data-options="required:true,missingMessage:'请填写名称！'"
+                     name="LabChName" value="<%=lc.LabChName %>" />
             </td></tr>
     </table>
     <script type="text/javascript">

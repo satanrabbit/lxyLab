@@ -5,7 +5,7 @@
         <tr><td>名称：</td>
             <td>
                 <input type="hidden" name="LabTypeID" value="<%=lt.LabTypeID %>" />
-                <input type="text" class="easyui-validatebox" name="LabTypeName" value="<%=lt.LabTypeName %>" />
+                <input type="text" class="easyui-validatebox"  data-options="required:true,missingMessage:'请填写名称！'" name="LabTypeName" value="<%=lt.LabTypeName %>" />
             </td></tr>
     </table>
 </form>

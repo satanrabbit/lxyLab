@@ -1034,6 +1034,77 @@ namespace LxyLab
         #endregion
         #endregion
 
+        #region 获取管理员
+        public LxyAdmin GetAdmin(string adminAccount)
+        {
+            InitCommand();
+            LxyAdmin admin = new LxyAdmin();
+            cmd.CommandText = "select * from Admin_tb where AdminAccount = @adminAccount";
+            cmd.Parameters.AddWithValue("@AdminName", adminAccount);
+            dr = cmd.ExecuteReader();
+            if(dr.Read()){
+                admin.AdminID = Convert.ToInt32(dr["adminID"]);
+                admin.AdminLevel = dr["adminLevel"].ToString();
+                admin.AdminAccount = adminAccount;
+                admin.AdminPwd = dr["adminPWD"].ToString();
+                admin.AdminName = dr["adminName"].ToString();
+            }
+            return admin;
+        }
+        public LxyAdmin GetAdmin(int adminID)
+        {
+            InitCommand();
+            LxyAdmin admin = new LxyAdmin();
+            cmd.CommandText = "select * from Admin_tb where AdminID = @adminID";
+            cmd.Parameters.AddWithValue("@adminID", adminID);
+            dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                admin.AdminID = adminID;
+                admin.AdminLevel = dr["adminLevel"].ToString();
+                admin.AdminAccount = dr["AdminAccount"].ToString(); ;
+                admin.AdminPwd = dr["adminPWD"].ToString();
+                admin.AdminName = dr["adminName"].ToString();
+            }
+            return admin;
+        }
+        #endregion
+        #region 保存管理员
+        public int SaveAdmin(LxyAdmin admin)
+        {
+            InitCommand();
+            if (admin.AdminID== 0)
+            {
+                //Insert new user 
+                cmd.CommandText = "INSERT INTO Admin_tb (AdminName,AdminAccount,AdminPwd,AdminLevel) VALUES (@AdminName,@AdminAccount,@AdminPwd,@AdminLevel)";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@AdminName", admin.AdminName);
+                cmd.Parameters.AddWithValue("@AdminAccount", admin.AdminAccount);
+                cmd.Parameters.AddWithValue("@AdminLevel", admin.AdminLevel);
+                cmd.Parameters.AddWithValue("@AdminPwd", admin.AdminPwd);
+                cmd.ExecuteNonQuery();
+                cmd.CommandText = "SELECT @@Identity ";
+                admin.AdminID = (int)cmd.ExecuteScalar();
+            }
+            else
+            {
+                cmd = new OleDbCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "UPDATE Admin_tb SET  " +
+                " AdminName=@AdminName,AdminAccount=@AdminAccount,AdminPwd=@AdminPwd,AdminLevel=@AdminLevel where AdminID =@AdminID";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@AdminName", admin.AdminName);
+                cmd.Parameters.AddWithValue("@AdminAccount", admin.AdminAccount);
+                cmd.Parameters.AddWithValue("@AdminPwd", admin.AdminPwd);
+                cmd.Parameters.AddWithValue("@AdminLevel", admin.AdminLevel);
+                cmd.Parameters.AddWithValue("@AdminID", admin.AdminID);
+                cmd.ExecuteNonQuery();
+            }
+            conn.Close();
+            return admin.AdminID;
+        }
+        #endregion
+
     }
 
     #region 元数据
@@ -1086,9 +1157,6 @@ namespace LxyLab
         public DateTime OrderPostTime { get; set; }
     }
     #endregion
-
-   
-    #endregion
     #region 实验使一级分类信息
     public class LabType
     {
@@ -1112,25 +1180,26 @@ namespace LxyLab
         public int LabSupType { get; set; }
         public string LabSupName { get; set; }
     }
-    #endregion 
+    #endregion
     #region LabChTypeWithTotal
     public class LabChTypeWithTotal
     {
         public int total { get; set; }
         public List<LabChType> rows { get; set; }
     }
-    #endregion 
+    #endregion
     #region 实验室信息
-    public class Lab {
-       
+    public class Lab
+    {
+
         public int LabID { get; set; }
         public string LabName { get; set; }
-        
-        public int  LabAdmin { get; set; } 
+
+        public int LabAdmin { get; set; }
         public string LabAddr { get; set; }
         public int LabAmount { get; set; }
         public string LabInfo { get; set; }
-        public int LabType { get; set; } 
+        public int LabType { get; set; }
         public bool LabDefault { get; set; }
 
         public string LabChName { get; set; }
@@ -1146,9 +1215,10 @@ namespace LxyLab
         public int total { get; set; }
         public List<Lab> rows { get; set; }
     }
-    #endregion 
+    #endregion
     #region 学期信息
-    public class Term {
+    public class Term
+    {
         public int TermID { get; set; }
         public string TermName { get; set; }
         public DateTime TermStartDay { get; set; }
@@ -1159,56 +1229,71 @@ namespace LxyLab
     #endregion
 
     #region 用户信息
-        public class LxyUser
+    public class LxyUser
+    {
+        public int UserID { get; set; }
+        public string UserName { get; set; }
+        public string UserPwd { get; set; }
+        public string UserAccount { get; set; }
+        public string UserNumber { get; set; }
+        public string UserTel { get; set; }
+        public int UserIdentity { get; set; }
+        public string UserCollege { get; set; }
+    }
+    public class LxyUserWithTotal
+    {
+        public LxyUserWithTotal()
         {
-            public int UserID { get; set; }
-            public string UserName { get; set; }
-            public string UserPwd { get; set; }
-            public string UserAccount { get; set; }
-            public string UserNumber { get; set; }
-            public string UserTel { get; set; }
-            public int UserIdentity { get; set; }
-            public string UserCollege { get; set; }
+            total = 0;
+            rows = new List<LxyUser>();
         }
-        public class LxyUserWithTotal
-        {
-            public LxyUserWithTotal()
-            {
-                total = 0;
-                rows = new List<LxyUser>();
-            }
-            public int total { get; set; }
-            public List<LxyUser> rows { get; set; }
-        }
-    #endregion 
-
-    #region 仪器信息
-        public class Instrument
-        {
-            public int InstrumentID { get; set; }
-            public string InstrumentName { get; set; }
-            public int InstrumentAmount { get; set; }
-            public string InstrumentIntro { get; set; }
-            public int InstrumentPer { get; set; }
-        }
-        
-        public class InstrumentWithTotal
-        {
-           public  int total { get; set; }
-           public List<Instrument> rows { get; set; }
-        }
+        public int total { get; set; }
+        public List<LxyUser> rows { get; set; }
+    }
     #endregion
 
-#region 仪器预约信息
-        public class InstOrder
-        {
-            public int InstOrderID { get;set;}
-            public int InstOrderLab{get;set;}
-            public int InstOrderIns { get; set; }
-            public int InstOrderAmount { get; set; }
-            public string InstName { get; set; }
+    #region 仪器信息
+    public class Instrument
+    {
+        public int InstrumentID { get; set; }
+        public string InstrumentName { get; set; }
+        public int InstrumentAmount { get; set; }
+        public string InstrumentIntro { get; set; }
+        public int InstrumentPer { get; set; }
+    }
 
-        }
-#endregion
+    public class InstrumentWithTotal
+    {
+        public int total { get; set; }
+        public List<Instrument> rows { get; set; }
+    }
+    #endregion
+    #region 仪器预约信息
+    public class InstOrder
+    {
+        public int InstOrderID { get; set; }
+        public int InstOrderLab { get; set; }
+        public int InstOrderIns { get; set; }
+        public int InstOrderAmount { get; set; }
+        public string InstName { get; set; }
 
+    }
+    #endregion
+
+    #region 管理员信息
+    public class LxyAdmin
+    {
+        public int AdminID { get; set; }
+        public string AdminName { get; set; }
+        public string AdminPwd { get; set; }
+        public string AdminLevel { get; set; }
+        public string AdminAccount { get; set; }
+    }
+    public class LxyAdminWithTotal
+    {
+        public int total { get; set; }
+        public List<LxyAdmin> rows { get; set; }
+    }
+    #endregion
+    #endregion
 }

@@ -26,22 +26,6 @@
             }
     </style>
     
-    <script type="text/javascript"> 
-        
-        $(function () {
-            //增加tab页
-            $(".menuLink").click(function () {
-                var $this = $(this);
-                var nd = { text: $this.text(), attributes: { url: $this.attr("href") } };
-                $.addTab(nd, centerTabs);
-                return false;
-            });
-            var centerTabs = $('#centerTabs').tabs({
-                fit: true,
-                border: false
-            });
-        });
-        </script>
 </head>
 <body  class="easyui-layout"  >
 		<div region="north"  style="height:60px;background-color:#f0f0f0;">
@@ -50,17 +34,22 @@
                       <p><a class="easyui-linkbutton" href="logout.ashx" data-options="iconCls:'icon-door_out'">退出</a></p>
                 </div>
             </div>
-            
 		</div> 
 		<div region="east" data-options="iconCls:'icon-reload',title:'关于',split:true,collapsed:true" style="width:180px;"></div>
 		<div region="west" split="true" title="控制面板" style="width:190px;">
             <div id="p" class="easyui-panel"   style="  padding:10px;background:#fafafa;" data-options="noheader: true">
-		        <p>管理员：夏千祥</p>
-		        <p>身份：教师</p>
-                <p>教工号：98812701</p> 
-                <p>电&emsp;话：98812701</p> 
-                <p>计算机科学与信息工程学院</p>
-                <p><a class="easyui-linkbutton" id="UserEditInfoBtn" href="javascript:;" data-options="iconCls:'icon-user_edit'">修改资料</a></p>
+                <%
+                    if (admin != null)
+                    {
+                        %>
+                
+		        <p>管理员：<%=admin.AdminName %></p> 
+                <p>账&emsp;号：<%=admin.AdminAccount %></p> 
+                <br />
+                <p><a class="easyui-linkbutton" id="AdminEditInfoBtn" href="javascript:;" data-options="iconCls:'icon-user_edit'">修改资料</a></p>
+                <%
+                    }
+                     %>
 	        </div>
             <div   class="easyui-panel" title="操作" style=" padding:10px;background:#fbfbfb;" data-options="iconCls:'icon-cog'">
 		        <div class="op-memu" >
@@ -78,8 +67,8 @@
                     <li class="ui-list-item"><a href="#"  class="menuLink" >如何申请认证？</a></li>
                     <li class="ui-list-item"><a href="#"  class="menuLink" >如何提现？</a></li> 
                     <li class="ui-list-item"><a href="#"  class="menuLink" >如何申请认q证？</a></li>
-                </ul>--%>
-	        </div>
+                </ul>
+	        </div>--%>
 		</div>
 		<div region="center" >
             <div id="centerTabs">
@@ -89,5 +78,32 @@
             </div>
 		</div>
     
+    <script type="text/javascript">
+
+        $(function () {
+            //增加tab页
+            $(".menuLink").click(function () {
+                var $this = $(this);
+                var nd = { text: $this.text(), attributes: { url: $this.attr("href") } };
+                $.addTab(nd, centerTabs);
+                return false;
+            });
+            var centerTabs = $('#centerTabs').tabs({
+                fit: true,
+                border: false
+            });
+            //修改资料
+            $("#AdminEditInfoBtn").click( function () {
+                $this = $(this);
+                sr.dialog.form("EditAdmin.aspx",
+                { title: '修改个人信息', form: 'EditForm', modal: true, width: 400, id: $this.attr("data-id") },
+                function (data) {
+                    if (data.status === 1) {
+                        $("#userOrder-dg").datagrid("reload");
+                    }
+                });
+            });
+        });
+        </script>
 </body>
 </html>

@@ -9,9 +9,10 @@ namespace LxyLab
 {
     public partial class EditLabChType : System.Web.UI.Page
     {
-        protected LabChType lc = new LabChType();
+        protected LabChType lc  ;
         protected void Page_Load(object sender, EventArgs e)
         {
+            lc = new LabChType();
             DataModel dm = new DataModel();
             if (Request.Params["id"] != null && Request.Params["id"].Trim() != "")
             {
